@@ -1,0 +1,231 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Guardian — Launch plan</title>
+<meta name="description" content="How Guardian goes from idea to the first €1,000 a month in 90 days: gate, setup, build order, pilots, sales, operations, money, calendar, kill criteria.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Serif:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="style.css">
+<style>
+.kpi{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin:20px 0 8px}
+.kpi div{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:16px}
+.kpi strong{display:block;font-family:'IBM Plex Serif',Georgia,serif;font-size:30px;color:var(--navy)}
+.kpi span{font-size:14px;color:var(--ink2)}
+.callout{background:#FFF6EA;border-left:4px solid var(--amber);padding:14px 18px;border-radius:0 6px 6px 0;margin:16px 0}
+.check{list-style:none;padding:0}
+.check li{padding:8px 0 8px 32px;position:relative;border-bottom:1px solid var(--line)}
+.check li::before{content:"";position:absolute;left:0;top:12px;width:18px;height:18px;border:2px solid var(--navy);border-radius:4px}
+@media (max-width:760px){.kpi{grid-template-columns:1fr 1fr}}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <a class="mark" href="index.html"><i></i>Guardian</a>
+    <nav aria-label="Main">
+      <a href="#gate">Gate</a>
+      <a href="#setup">Setup</a>
+      <a href="#build">Build</a>
+      <a href="#pilots">Pilots</a>
+      <a href="#sell">Sell</a>
+      <a href="#ops">Operate</a>
+      <a href="#money">Money</a>
+      <a href="#calendar">90 days</a>
+      <a href="#kill">Kill criteria</a>
+      <a href="plan.html">Business plan</a>
+      <a href="https://gummihurdal.github.io/ideas/">All ideas</a>
+    </nav>
+  </div>
+</header>
+
+<main class="doc">
+<section class="hero">
+  <div class="wrap" style="display:block">
+    <p class="eyebrow">Launch plan, 13 October 2026</p>
+    <h1>From idea to €1,000 a month in 90 days.</h1>
+    <p>Beside a full-time job, with under €5,000 and no more than ten hours a week. Everything below is sequenced so that no money is spent before the gate is cleared, and no building happens that a pilot customer has not asked for.</p>
+    <div class="kpi">
+      <div><strong>5</strong><span>paying customers by 13 January 2027</span></div>
+      <div><strong>€1,000</strong><span>monthly recurring revenue at that point</span></div>
+      <div><strong>&lt; €5,000</strong><span>total spend to get there</span></div>
+      <div><strong>10 h</strong><span>per week of founder time, maximum</span></div>
+    </div>
+  </div>
+</section>
+
+<div class="wrap">
+
+<h2 id="gate">The gate: employer clearance</h2>
+<p>One thing comes before everything. Ask HR or compliance this week, in writing, for permission to run a side business: a non-intrusive monitoring and reporting service for small companies, with no overlap with the bank's suppliers or clients, no use of bank systems, time or information, and no security work that could be read as testing or attacking. Until the written answer is in, build only in your own lab and sell nothing.</p>
+<div class="callout">The pitch in one sentence, for every conversation from here on: "Guardian proves every month that your backups would restore and that nothing of yours is exposed on the internet, in a report your insurer and your auditor accept."</div>
+
+<h2 id="setup">Step 1 — Setup, weeks 1–2</h2>
+<table>
+  <thead><tr><th>Item</th><th>Decision</th><th>Cost (€)</th></tr></thead>
+  <tbody>
+    <tr><td>Legal form</td><td>Start as a Swiss sole proprietorship (Einzelfirma) for speed; convert to a GmbH once revenue passes €3,000 a month or a customer requires it. Register with the commercial register if turnover will exceed CHF 100,000; otherwise optional at first.</td><td>0–600</td></tr>
+    <tr><td>Terms of service</td><td>Have a lawyer review a short contract covering: scope limited to listed assets, written authorisation for every scan, no penetration testing, reporting-only liability, data processing under Swiss DPA and GDPR, Swiss law and venue.</td><td>1,200–1,800</td></tr>
+    <tr><td>Authorisation form</td><td>A one-page "Scope and authorisation" the customer signs per site: public IP ranges, domains, backup system, device list, named contact. Nothing is checked that is not on this page.</td><td>In the legal fee</td></tr>
+    <tr><td>Insurance</td><td>Professional liability for IT services covering monitoring and reporting. Ask the broker explicitly to confirm "no penetration testing" is in the wording.</td><td>800–1,200 a year</td></tr>
+    <tr><td>Bank and invoicing</td><td>A separate business account; invoicing through a simple tool with Swiss QR-bill support.</td><td>0–20 a month</td></tr>
+    <tr><td>Brand</td><td>The site already exists. Register the domain, set up hello@ and a signature. No logo contest, no agency.</td><td>30–80</td></tr>
+  </tbody>
+</table>
+
+<h2 id="build">Step 2 — Build, weeks 1–6</h2>
+<p>Claude Code builds everything; you review, test in your own lab and sign. Build in this order, and stop at each step to show it to a pilot customer before moving to the next.</p>
+<table>
+  <thead><tr><th>Order</th><th>Component</th><th>How</th><th>Done when</th></tr></thead>
+  <tbody>
+    <tr><td>1</td><td>Backup collector, Veeam first</td><td>Read-only account on the Veeam REST API; nightly pull of job results, repository immutability, retention, SureBackup or restore-test records into Postgres on a Hetzner server.</td><td>Your own lab produces a correct daily dataset for seven days.</td></tr>
+    <tr><td>2</td><td>Exposure collector</td><td>Scheduled scan of authorised ranges with nmap and httpx; fingerprinting; match against the NVD and CISA known-exploited list; vendor end-of-life matching from the customer's device list; SPF, DKIM, DMARC and certificate checks from public DNS.</td><td>Your own public IPs scanned monthly with no false alarms you cannot explain.</td></tr>
+    <tr><td>3</td><td>Report generator</td><td>Findings go to Claude with a fixed template: seven questions, traffic lights, fix list in priority order, written for a managing director in German or English. You read every report before it ships.</td><td>A pilot customer reads it without asking what anything means.</td></tr>
+    <tr><td>4</td><td>Alerts</td><td>Same-day email when a backup job fails twice, a new service appears on the internet, or a listed device goes end-of-life.</td><td>An alert fires in the lab within one hour of the event.</td></tr>
+    <tr><td>5</td><td>Attestation</td><td>A quarterly PDF with the restore-test history and exposure status, signed by you, formatted to answer the common insurer questions line by line.</td><td>A broker says it would satisfy a questionnaire.</td></tr>
+    <tr><td>6</td><td>Plus checks</td><td>Breach-data lookups for the customer's email domain, lookalike-domain monitoring, Microsoft 365 posture through a read-only Graph app, website hygiene.</td><td>Only after the first three paying customers.</td></tr>
+    <tr><td>7</td><td>Other backup systems</td><td>Proxmox Backup Server, Synology, Azure Backup collectors.</td><td>When a prospect asks; not before.</td></tr>
+  </tbody>
+</table>
+<p><strong>Stack:</strong> Python, Postgres, one Hetzner server in Helsinki or Nuremberg, systemd timers, Claude API for report writing, a static status page. No Kubernetes, no SaaS platform, nothing you have not run before. Everything already matches what you operate at work and on your own servers.</p>
+<p><strong>What you never build:</strong> a customer dashboard before month four, a mobile app, a billing platform, integrations nobody has asked for.</p>
+
+<h2 id="pilots">Step 3 — Two pilot customers, weeks 3–8</h2>
+<p>Pilots are how the report format gets fixed. Two is enough; they must be real companies with real backups, and they should be different from each other: one running Veeam directly, one through an IT provider.</p>
+<ul>
+  <li><strong>Who to ask:</strong> former colleagues from Norway, Austria or Switzerland who now run or manage IT at a company with 20 to 200 staff; a friend's company; the IT provider of a business you already know. Ask three, expect two.</li>
+  <li><strong>The deal:</strong> free for the first month, then €199 a month or a frank reason why not. Written scope and authorisation signed before the first scan, even for friends.</li>
+  <li><strong>What they get:</strong> the first report by hand, walked through on a call, and the question "what would you change?" Their answers become the template.</li>
+  <li><strong>What you get:</strong> two named references, two quotes for the site, and the first evidence that the report answers a real insurer or auditor question.</li>
+</ul>
+
+<h2 id="sell">Step 4 — Selling, from week 8</h2>
+<p>Selling is the key dependency in the score, so it gets a method, not hope. Targets: five paying by day 90, fifteen by day 180, thirty by day 365.</p>
+<h3>Channels, in order</h3>
+<ol>
+  <li><strong>Your own network, directly.</strong> Thirty personal messages to people you know who run or influence IT at small companies. Expect one in six to take a call and one in three calls to convert. That is the first five customers.</li>
+  <li><strong>IT providers (MSPs).</strong> The multiplier: one provider brings ten sites. Find twenty in Zürich, Aargau, Basel and Bern; offer the Provider plan with their name on the reports. Pitch: "your customers' insurers ask for evidence you cannot easily produce; we produce it under your brand."</li>
+  <li><strong>Insurance brokers.</strong> Five brokers who place cyber cover for SMEs. They lose deals when clients cannot answer the questionnaire. Offer the Compliance tier as the thing that gets their client insured.</li>
+  <li><strong>Content.</strong> One plain-language article a month, in German and English, starting with the October 2026 freezer attack: what happened, what it means for a shop or a clinic, five things to check this week. Posted on LinkedIn and the site; no paid ads before month six.</li>
+</ol>
+<h3>The call, in ten minutes</h3>
+<ol>
+  <li>Ask what their backup system is and when they last restored something on purpose. Most cannot answer the second question.</li>
+  <li>Ask whether their insurer or a customer has sent a security questionnaire in the last year. Most say yes.</li>
+  <li>Show one page of a sample report with the two red rows: restore test older than 90 days, one device reachable from the internet.</li>
+  <li>Offer the Company plan, first month free if they sign the authorisation this week.</li>
+</ol>
+<h3>Objections and answers</h3>
+<table>
+  <thead><tr><th>They say</th><th>You say</th></tr></thead>
+  <tbody>
+    <tr><td>"Our IT provider handles this."</td><td>"They operate it. We prove it works. Your insurer wants the proof, and your provider can be the one who sends it: ask them to use our Provider plan."</td></tr>
+    <tr><td>"We are too small for NIS2."</td><td>"Your largest customer probably is not, and their questionnaire lands on your desk. The report answers it in one attachment."</td></tr>
+    <tr><td>"Is this a security scan? We do not want anything broken."</td><td>"Non-intrusive only: public data and read-only connections. We never log in, never test, never change anything. It is in the contract."</td></tr>
+    <tr><td>"€199 is a lot for a report."</td><td>"A consultant's annual evidence costs €5,000 and is out of date the next day. This is monthly, and it is what your renewal depends on."</td></tr>
+  </tbody>
+</table>
+
+<h2 id="ops">Operations — under two hours per customer per month</h2>
+<ul>
+  <li><strong>Onboarding, 90 minutes once:</strong> signed scope, read-only account created by the customer, device list received, first scan reviewed by hand, welcome call.</li>
+  <li><strong>Monthly, 45 minutes:</strong> read the generated report, correct anything Claude got wrong, send it on the first working day of the month.</li>
+  <li><strong>Alerts, as they come:</strong> a same-day email; you never fix anything yourself, you tell them what to fix and who should do it.</li>
+  <li><strong>Quarterly, 30 minutes:</strong> sign the attestation.</li>
+  <li><strong>Support:</strong> email only, answered within one working day, from a dedicated address, never from your work phone.</li>
+</ul>
+<p>At thirty customers that is roughly 25 hours a month, inside the ten-hour-a-week limit. Beyond forty, hire a part-time analyst or stop adding Company customers and grow only through Providers.</p>
+
+<h2 id="money">Money</h2>
+<table>
+  <thead><tr><th>Month</th><th>Customers (Company / Plus / Compliance / Provider)</th><th>MRR (€)</th><th>Costs (€)</th><th>Cumulative cash (€)</th></tr></thead>
+  <tbody>
+    <tr><td>Oct 2026</td><td>0 (setup, build)</td><td>0</td><td>2,800</td><td>−2,800</td></tr>
+    <tr><td>Nov</td><td>2 pilots, free</td><td>0</td><td>400</td><td>−3,200</td></tr>
+    <tr><td>Dec</td><td>2 / 0 / 0 / 0</td><td>400</td><td>400</td><td>−3,200</td></tr>
+    <tr><td>Jan 2027</td><td>4 / 1 / 0 / 0</td><td>1,100</td><td>450</td><td>−2,550</td></tr>
+    <tr><td>Feb</td><td>5 / 2 / 0 / 1</td><td>2,050</td><td>500</td><td>−1,000</td></tr>
+    <tr><td>Mar</td><td>6 / 3 / 1 / 1</td><td>2,900</td><td>550</td><td>1,350</td></tr>
+    <tr><td>Apr</td><td>7 / 4 / 2 / 2</td><td>4,200</td><td>650</td><td>4,900</td></tr>
+    <tr><td>May</td><td>8 / 5 / 3 / 2</td><td>5,200</td><td>700</td><td>9,400</td></tr>
+    <tr><td>Jun</td><td>9 / 6 / 4 / 3</td><td>6,500</td><td>800</td><td>15,100</td></tr>
+    <tr><td>Jul</td><td>10 / 7 / 5 / 3</td><td>7,400</td><td>850</td><td>21,650</td></tr>
+    <tr><td>Aug</td><td>11 / 8 / 5 / 4</td><td>8,300</td><td>900</td><td>29,050</td></tr>
+    <tr><td>Sep 2027</td><td>12 / 9 / 6 / 4</td><td>9,300</td><td>950</td><td>37,400</td></tr>
+  </tbody>
+</table>
+<p class="note">Assumptions: Company €199, Plus €299, Compliance €399, Provider €449 average. Costs are hosting, feeds, model usage, insurance, tools and a modest content budget; founder time excluded. Break-even on cash in March 2027 if the sales targets hold; three months later if they slip by half. Taxes and social contributions on profit are not included.</p>
+
+<h2 id="calendar">The first 90 days, week by week</h2>
+<table>
+  <thead><tr><th>Week</th><th>Actions</th><th>Output</th></tr></thead>
+  <tbody>
+    <tr><td>1 · 13–19 Oct</td><td>Employer clearance request sent. Hetzner server up. Veeam read-only account in your lab. Claude Code brief for the backup collector.</td><td>Request in writing; collector pulling lab data.</td></tr>
+    <tr><td>2 · 20–26 Oct</td><td>Lawyer briefed on terms and authorisation form. Broker asked for liability quotes. Exposure collector started.</td><td>Quotes in; first scan of your own ranges.</td></tr>
+    <tr><td>3 · 27 Oct–2 Nov</td><td>Report template with Claude; first full lab report. Three pilot invitations sent.</td><td>One readable report; two pilots agreed.</td></tr>
+    <tr><td>4 · 3–9 Nov</td><td>Terms signed off. Insurance bound. Pilot 1 scope signed and connected.</td><td>Legal and insurance done; first real data.</td></tr>
+    <tr><td>5 · 10–16 Nov</td><td>Pilot 2 connected. Alerts built. First freezer-attack article drafted in German and English.</td><td>Both pilots live; article ready.</td></tr>
+    <tr><td>6 · 17–23 Nov</td><td>First pilot reports delivered by hand and walked through. Template corrected from feedback.</td><td>Two reviewed reports; two quotes requested.</td></tr>
+    <tr><td>7 · 24–30 Nov</td><td>Article published. Attestation format drafted and shown to a broker.</td><td>Broker feedback; first inbound contact.</td></tr>
+    <tr><td>8 · 1–7 Dec</td><td>December reports sent. Pilots asked to convert. Thirty personal messages sent.</td><td>Two paying customers; first calls booked.</td></tr>
+    <tr><td>9 · 8–14 Dec</td><td>Sales calls. Twenty MSPs listed; five contacted.</td><td>Three to five calls held.</td></tr>
+    <tr><td>10 · 15–21 Dec</td><td>Close what is ready before the holidays. Second article drafted.</td><td>Three paying.</td></tr>
+    <tr><td>11 · 22 Dec–4 Jan</td><td>Quiet weeks: January reports prepared, Plus checks built.</td><td>Plus tier ready to sell.</td></tr>
+    <tr><td>12–13 · 5–13 Jan</td><td>January reports sent. Remaining calls from the thirty messages. First MSP proposal.</td><td>Five paying, €1,000 a month.</td></tr>
+  </tbody>
+</table>
+
+<h2 id="kill">Kill criteria and risks</h2>
+<p>Decide in advance what would stop the project, so the decision is not made in a tired moment.</p>
+<ul>
+  <li><strong>Stop if</strong> the employer says no in writing: Guardian waits, or is sold to a partner who runs it.</li>
+  <li><strong>Stop if</strong> neither pilot converts to paid by 15 December and cannot say what would have changed their mind.</li>
+  <li><strong>Stop if</strong> fewer than three customers pay by 31 January 2027 after all thirty messages and ten calls.</li>
+  <li><strong>Stop if</strong> monthly delivery takes more than two hours per customer by month four; the model is not working.</li>
+</ul>
+<table>
+  <thead><tr><th>Risk</th><th>Answer</th></tr></thead>
+  <tbody>
+    <tr><td>Employer rules</td><td>Written clearance first; GmbH with a separate address if required.</td></tr>
+    <tr><td>Scanning something unauthorised</td><td>Only addresses on the signed form, logged; a quarterly review of every scope.</td></tr>
+    <tr><td>A customer is attacked anyway</td><td>Contract states Guardian reports and attests, never operates; the report trail shows what was flagged and when.</td></tr>
+    <tr><td>MSPs see competition</td><td>Provider plan with their name on the report; you never contact their clients directly.</td></tr>
+    <tr><td>False findings</td><td>Every report read by you before sending; sources shown; uncertain findings marked as such.</td></tr>
+    <tr><td>Founder time</td><td>Ten-hour weekly cap; growth beyond forty customers only through Providers or a part-time analyst.</td></tr>
+  </tbody>
+</table>
+
+<h2 id="checklist">Launch checklist</h2>
+<ul class="check">
+  <li>Employer clearance requested in writing</li>
+  <li>Employer clearance received</li>
+  <li>Hetzner server and lab Veeam connected</li>
+  <li>Backup collector producing daily data</li>
+  <li>Exposure collector scanning own ranges</li>
+  <li>Report template approved by a non-technical reader</li>
+  <li>Terms and authorisation form reviewed by a lawyer</li>
+  <li>Liability insurance bound, "no penetration testing" confirmed</li>
+  <li>Business account and invoicing live</li>
+  <li>Pilot 1 scope signed and connected</li>
+  <li>Pilot 2 scope signed and connected</li>
+  <li>First two reports delivered and reviewed</li>
+  <li>Freezer-attack article published</li>
+  <li>Attestation format checked by a broker</li>
+  <li>Thirty personal messages sent</li>
+  <li>Twenty MSPs listed, five contacted</li>
+  <li>Two pilots converted to paid</li>
+  <li>Five paying customers</li>
+</ul>
+
+</div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>Guardian, Switzerland</span>
+    <span><a href="index.html">Product</a> · <a href="plan.html">Business plan</a></span>
+  </div>
+</footer>
+</body>
+</html>
