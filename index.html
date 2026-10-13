@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Guardian — Backup and exposure evidence for small businesses</title>
+<meta name="description" content="Guardian proves two things every month: that your backups would restore after a ransomware attack, and that nothing of yours is reachable from the internet that shouldn't be. Built for NIS2, cyber-insurance and supply-chain reviews.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Serif:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <a class="mark" href="#top"><i></i>Guardian</a>
+    <nav aria-label="Main">
+      <a href="#why">Why now</a>
+      <a href="#how">How it works</a>
+      <a href="#report">The report</a>
+      <a href="#pricing">Pricing</a>
+      <a href="plan.html">Business plan</a>
+      <a href="https://gummihurdal.github.io/ideas/">All ideas</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+<section class="hero">
+  <div class="wrap">
+    <div>
+      <p class="eyebrow">For companies with 10 to 500 staff, and the IT providers who serve them</p>
+      <h1>Proof that you can recover. Proof that you're not exposed.</h1>
+      <p>Guardian checks two things every month and writes them up in plain language: whether your backups would actually restore after a ransomware attack, and whether any of your equipment is reachable from the internet. It is the evidence NIS2 auditors, cyber insurers and your customers' security reviews now ask for.</p>
+      <div class="btns">
+        <a class="btn solid" href="#pricing">See plans</a>
+        <a class="btn" href="#report">Read a sample report</a>
+      </div>
+    </div>
+    <div class="report" aria-label="Sample monthly report summary">
+      <div class="rh"><span>Monthly evidence report</span><span>October 2026</span></div>
+      <div class="row"><span>Backup jobs completed, all systems</span><span class="pill ok">100%</span></div>
+      <div class="row"><span>Restore test, file server, documented</span><span class="pill ok">12 days ago</span></div>
+      <div class="row"><span>Immutable off-site copy</span><span class="pill warn">7 days, insurer asks 30</span></div>
+      <div class="row"><span>Backup credentials separate from domain admin</span><span class="pill ok">Yes</span></div>
+      <div class="row"><span>Internet-reachable devices</span><span class="pill bad">3 found</span></div>
+      <div class="row"><span>Refrigeration controller, firmware end-of-life</span><span class="pill bad">Disconnect</span></div>
+      <div class="row"><span>Ready for insurance questionnaire</span><span class="pill warn">After 2 fixes</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="why">
+  <div class="wrap">
+    <div class="lead">
+      <h2>Why now</h2>
+      <p>Three things changed in 2026. Backup management became a legal control, insurers started demanding tested restores, and a cyber-attack on supermarket freezers showed what an unpatched controller on the internet costs.</p>
+    </div>
+    <div class="grid3">
+      <div class="card"><h3>NIS2 names backups</h3><p>Article 21(2)(c) requires business continuity "such as backup management and disaster recovery" as an evidenced control. Supply-chain clauses push the same questions down to small suppliers, even below the thresholds.</p></div>
+      <div class="card"><h3>Insurers check restores</h3><p>Cyber-insurance renewals now ask for isolated backup credentials, immutable copies and tested restores within the last 90 days, with documented results. No evidence, higher premium or no cover.</p></div>
+      <div class="card"><h3>Freezers got hacked</h3><p>In October 2026 attackers reached refrigeration controllers at hundreds of French supermarkets through software that could no longer be updated. Losses: tens of millions of euros in spoiled food. The vendor had already identified the risk.</p></div>
+    </div>
+    <p class="quote" style="margin-top:40px">"Attacking equipment that is essential to preserving fresh produce and the food supply of the French people is extremely serious and without precedent."<cite>Chief executive of Coopérative U, after the October 2026 attack, as reported by E24 and the BBC</cite></p>
+  </div>
+</section>
+
+<section class="alt" id="how">
+  <div class="wrap">
+    <div class="lead">
+      <h2>How it works</h2>
+      <p>Read-only connections, no agents on your production servers, nothing changed without your say. You authorise exactly what we look at, in writing, before we look.</p>
+    </div>
+    <div class="steps">
+      <div><h3>Connect</h3><p>A read-only link to your backup system (Veeam, Proxmox Backup, Synology, Azure Backup) and a list of the public addresses and equipment you own.</p></div>
+      <div><h3>Check</h3><p>Every day we collect job results, retention, immutability and restore-test records, and scan your external footprint against known-vulnerable products: refrigeration, HVAC, cameras, UPS, door systems.</p></div>
+      <div><h3>Report</h3><p>Once a month you get a plain-language report with a traffic-light summary and a fix list in priority order, written for a managing director, not an engineer. Urgent findings come the same day.</p></div>
+      <div><h3>Prove</h3><p>Quarterly, a signed attestation of your restore tests and exposure status, formatted to answer insurer and NIS2 questionnaires directly.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="report">
+  <div class="wrap">
+    <div class="lead">
+      <h2>What the report answers</h2>
+      <p>Seven questions, the same every month, so trends are obvious and auditors see consistency.</p>
+    </div>
+    <table>
+      <thead><tr><th>Question</th><th>Evidence collected</th><th>Who asks for it</th></tr></thead>
+      <tbody>
+        <tr><td>Did every backup job complete?</td><td>Job logs, success rate, missed systems</td><td>NIS2 Art. 21, insurers</td></tr>
+        <tr><td>Have you restored something recently, and did it work?</td><td>Restore test records with dates and outcomes</td><td>Insurers (90-day window), auditors</td></tr>
+        <tr><td>Is there a copy ransomware cannot delete?</td><td>Immutability and retention settings, off-site copy</td><td>Insurers, NIS2 implementing regulation</td></tr>
+        <tr><td>Can one stolen password destroy the backups?</td><td>Credential separation, MFA on backup console</td><td>Insurers</td></tr>
+        <tr><td>What of yours can be reached from the internet?</td><td>External scan of authorised addresses</td><td>NIS2 Art. 21, customers' supply-chain reviews</td></tr>
+        <tr><td>Is any of it known to be vulnerable or unsupported?</td><td>Match against vulnerability databases and vendor end-of-life notices</td><td>Cyber Resilience Act context, insurers</td></tr>
+        <tr><td>Are you ready for the next questionnaire?</td><td>Gap list mapped to NIS2 Art. 21 and common insurer forms</td><td>You</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section class="alt" id="pricing">
+  <div class="wrap">
+    <div class="lead">
+      <h2>Pricing</h2>
+      <p>Monthly, cancel any time. Prices exclude VAT. Every plan includes the monthly report, same-day alerts and the quarterly attestation.</p>
+    </div>
+    <div class="price">
+      <div class="card"><h3>Company</h3><div class="amount">€199<small> /month</small></div><small>One company, one site</small><ul><li>Backup evidence, all systems</li><li>External exposure check</li><li>Monthly report and alerts</li><li>Quarterly attestation</li></ul><a class="btn ink solid" href="#contact">Start</a></div>
+      <div class="card"><h3>Provider</h3><div class="amount">€449<small> /month</small></div><small>IT providers, up to 10 client sites</small><ul><li>Everything in Company, per client</li><li>Reports in your name</li><li>Client dashboard</li><li>Priority support</li></ul><a class="btn ink solid" href="#contact">Start</a></div>
+      <div class="card"><h3>Insurance pack</h3><div class="amount">€690<small> one-off</small></div><small>Before a renewal or audit</small><ul><li>Full backup and exposure assessment</li><li>Questionnaire answers with evidence</li><li>Fix plan, prioritised</li><li>30-day follow-up check</li></ul><a class="btn ink solid" href="#contact">Book</a></div>
+    </div>
+    <p class="note" style="margin-top:20px">Scanning covers only addresses and systems you own and authorise in writing. Guardian reports and attests; it does not replace your IT provider or your backup software.</p>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap">
+    <h2>Talk to us</h2>
+    <p>Leave an email and we will reply within one working day with a short questionnaire to see whether Guardian fits.</p>
+    <form action="mailto:hello@guardian.example" method="post" enctype="text/plain">
+      <label for="email" style="position:absolute;left:-9999px">Email</label>
+      <input id="email" name="email" type="email" placeholder="you@company.ch" required>
+      <button type="submit">Request a conversation</button>
+    </form>
+    <p class="note" style="margin-top:12px">Replace the placeholder address with the real one before launch.</p>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>Guardian, Switzerland</span>
+    <span>Backup evidence and exposure evidence, monthly.</span>
+  </div>
+</footer>
+</body>
+</html>

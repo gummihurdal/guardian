@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Guardian — Business plan</title>
+<meta name="description" content="Guardian business plan: market, legal drivers, product, pricing, costs, timeline and an honest chance of success.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Serif:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <a class="mark" href="index.html"><i></i>Guardian</a>
+    <nav aria-label="Main">
+      <a href="#law">Legal drivers</a>
+      <a href="#market">Market</a>
+      <a href="#model">Model</a>
+      <a href="#costs">Costs</a>
+      <a href="#timeline">Timeline</a>
+      <a href="#score">Score</a>
+      <a href="https://gummihurdal.github.io/ideas/">All ideas</a>
+    </nav>
+  </div>
+</header>
+
+<main class="doc">
+<section class="hero">
+  <div class="wrap" style="display:block">
+    <p class="eyebrow">Business plan, draft of 13 October 2026</p>
+    <h1>Evidence as a service.</h1>
+    <p>Guardian sells one thing: monthly, independent evidence that a small company's backups would restore and that its equipment is not exposed to the internet. The customer already owns backup software and a firewall; what they lack is proof, and from 2026 proof is what the law, the insurer and their largest customer demand.</p>
+  </div>
+</section>
+
+<div class="wrap">
+
+<h2 id="law">The legal drivers</h2>
+<p>Three regulations and one market force converge on the same two questions.</p>
+<table>
+  <thead><tr><th>Driver</th><th>What it requires</th><th>Status</th><th>What Guardian supplies</th></tr></thead>
+  <tbody>
+    <tr><td><a href="https://www.probackup.io/blog/nis2-backup-requirements">NIS2, Article 21(2)(c) and (d)</a></td><td>Business continuity including backup management and disaster recovery as an evidenced control; supply-chain security, so in-scope companies must assess their suppliers, pushing the same questions to small firms below the thresholds. Germany applied its law from 6 December 2025 with no grace period.</td><td>In force; audits under way</td><td>The backup half of the report, mapped to Article 21</td></tr>
+    <tr><td><a href="https://openmetal.io/resources/blog/why-immutable-storage-is-now-a-cyber-insurance-requirement/">Cyber-insurance underwriting</a></td><td>Isolated backup credentials, immutable storage and tested restores within the last 90 days with documented results; aligning with NIS2 Article 21 passes most questionnaires.</td><td>Every renewal</td><td>Quarterly attestation and the insurance pack</td></tr>
+    <tr><td><a href="https://www.itemis.com/en/glossary/cyber-resilience-act/">Cyber Resilience Act (EU 2024/2847)</a></td><td>From 11 September 2026 manufacturers must report actively exploited vulnerabilities within 24 hours, including for products already on the market; from 11 December 2027 full requirements apply, including security updates for a support period of at least five years.</td><td>Reporting live since September 2026</td><td>The exposure half: unsupported or end-of-life equipment becomes a documented liability, and the report names it</td></tr>
+    <tr><td>Swiss context</td><td>Switzerland is outside NIS2, but Swiss suppliers to EU customers receive the same supply-chain questionnaires, and Swiss cyber insurers ask the same underwriting questions. Critical-infrastructure operators in Switzerland also have a reporting duty to the federal cyber-security office.</td><td>In force</td><td>A Swiss-based provider that speaks to both sides</td></tr>
+  </tbody>
+</table>
+
+<h3>The event that makes the pitch</h3>
+<p>On Monday 12 October 2026, attackers reached refrigeration controllers at about 180 Intermarché stores and at Coopérative U, Carrefour and Monoprix sites in France through remote-management software from Danfoss; a further 100 stores were disconnected as a precaution and losses are expected in the tens of millions of euros. The vendor said the affected units were older models whose security software could not be updated against a risk it had already identified, and a security firm had flagged the weaknesses shortly before. Similar disruptions had hit US military commissaries in late August. Source: E24, BBC and Reuters reporting, 13 October 2026.</p>
+<p>Every lesson in that story is a line in the Guardian report: know what is reachable, know what is unsupported, disconnect what cannot be fixed, and be able to prove you did.</p>
+
+<h2 id="market">Market</h2>
+<ul>
+  <li><strong>Who:</strong> companies with 10 to 500 staff in Switzerland, Germany and Austria, and the managed-service providers (MSPs) who run their IT. First verticals: food retail and distribution, pharmacies, clinics, hotels, logistics, property management, where operational equipment sits on the network.</li>
+  <li><strong>How many:</strong> there are more than 3.5 million SMEs in Germany alone and roughly 600,000 in Switzerland; Veeam and Proxmox count hundreds of thousands of installations across DACH. If one in a thousand buys Guardian, that is several thousand customers.</li>
+  <li><strong>What they buy today:</strong> backup software and an IT provider. Neither gives independent evidence. Compliance consultants give evidence once a year for €5,000 and up. Guardian gives it monthly for €199.</li>
+  <li><strong>Competition:</strong> enterprise tools (Veeam ONE, security-rating services such as those used by large insurers) are priced and designed for big companies. The small-company evidence gap is open.</li>
+</ul>
+
+<h2 id="model">Business model</h2>
+<table>
+  <thead><tr><th>Product</th><th>Price</th><th>Marginal cost</th><th>Role</th></tr></thead>
+  <tbody>
+    <tr><td>Company plan</td><td>€199 a month</td><td>About €15 (hosting, scanning, model usage)</td><td>Core subscription</td></tr>
+    <tr><td>Provider plan, 10 sites</td><td>€449 a month</td><td>About €60</td><td>Scale channel: one MSP brings ten sites</td></tr>
+    <tr><td>Insurance pack</td><td>€690 one-off</td><td>Founder's time, about 4 hours</td><td>Entry product before renewals; converts to subscription</td></tr>
+  </tbody>
+</table>
+<p><strong>Milestones.</strong> €1,000 a month is five Company customers or two Providers and one Company. Thirty Company customers and ten Providers is about €125,000 a year at roughly 85% gross margin, run in home-office hours with Claude generating the reports.</p>
+<p><strong>Channels, in order of expected return:</strong> the founder's professional network and LinkedIn; Swiss and German MSP communities, where one partner multiplies sites; insurance brokers, who want clients to pass underwriting; and content, starting with a plain-language explainer on the French freezer attack in German, French and English.</p>
+<p><strong>Built with AI, deliberately.</strong> Claude Code builds the collectors and scanners; Claude writes every report from structured findings, in the customer's language; the founder reviews and signs attestations. This is why the price can be a tenth of a consultant's.</p>
+
+<h2 id="costs">Cost to launch</h2>
+<table>
+  <thead><tr><th>Item</th><th>What it covers</th><th>Lean (€)</th><th>Full (€)</th></tr></thead>
+  <tbody>
+    <tr><td>Infrastructure</td><td>Server, scanning nodes, backups, monitoring, domain</td><td>900</td><td>2,400</td></tr>
+    <tr><td>Legal</td><td>Company registration or sole-trader setup, terms, authorised-scanning agreement, data-processing agreement, employer side-business clearance</td><td>1,500</td><td>4,000</td></tr>
+    <tr><td>Insurance</td><td>Professional liability covering security services</td><td>800</td><td>1,500</td></tr>
+    <tr><td>Brand and site</td><td>Logo, this site, sample report design</td><td>300</td><td>1,500</td></tr>
+    <tr><td>Marketing</td><td>Content, two trade-group memberships, first broker meetings</td><td>500</td><td>2,500</td></tr>
+    <tr><td>Software and data</td><td>Vulnerability data feeds, email, invoicing, model usage</td><td>600</td><td>1,500</td></tr>
+    <tr><th>Total</th><th></th><th>4,600</th><th>13,400</th></tr>
+  </tbody>
+</table>
+<p class="note">Founder time excluded. No inventory, no production, no trading capital: the cheapest idea on the hub to test.</p>
+
+<h2 id="timeline">Timeline</h2>
+<table>
+  <thead><tr><th>When</th><th>Milestone</th></tr></thead>
+  <tbody>
+    <tr><td>October 2026</td><td>Employer clearance confirmed; legal terms drafted; collector for Veeam and external scanner built with Claude Code; sample report produced from the founder's own lab</td></tr>
+    <tr><td>November 2026</td><td>Two pilot customers from the founder's network at no charge for one month; report format fixed on their feedback</td></tr>
+    <tr><td>December 2026</td><td>Pilots convert to paid; freezer-attack explainer published; first broker conversation</td></tr>
+    <tr><td>Q1 2027</td><td>Proxmox, Synology and Azure Backup collectors; first MSP partner; target five paying customers (€1,000 a month)</td></tr>
+    <tr><td>Q2 2027</td><td>Insurance pack launched before mid-year renewals; target €3,000 a month</td></tr>
+    <tr><td>H2 2027</td><td>Cyber Resilience Act full application approaches; "unsupported equipment" report module marketed to facility managers; target €8,000 a month</td></tr>
+  </tbody>
+</table>
+
+<h2 id="score">Chance of success</h2>
+<p>Scored the same way as every idea on the hub: seven factors, 0 to 10, where success means a business that pays its people and still exists in three years. Overall: <strong>6 / 10</strong>, the highest on the hub.</p>
+<table>
+  <thead><tr><th>Factor</th><th>Score</th><th>Why</th></tr></thead>
+  <tbody>
+    <tr><td>Market need</td><td>8</td><td>Law, insurers and customers all demand the same evidence; the freezer attack made it visible to non-technical owners.</td></tr>
+    <tr><td>Differentiation</td><td>6</td><td>Independent evidence for small companies at a tenth of consultant prices; enterprise tools do not serve this segment. Copyable by an MSP, but few will.</td></tr>
+    <tr><td>Founder fit</td><td>8</td><td>Backup, monitoring, security and automation are the founder's daily work; police and central-bank background gives credibility in a trust business.</td></tr>
+    <tr><td>Key dependency</td><td>5</td><td>Selling, not building: the first five customers must come from the founder's own network and a broker or MSP partner.</td></tr>
+    <tr><td>Regulatory path</td><td>7</td><td>Authorised scanning and liability are well understood; employer side-business rules are the one gate to clear first.</td></tr>
+    <tr><td>Unit economics</td><td>8</td><td>About 85% gross margin, no inventory, monthly recurring revenue.</td></tr>
+    <tr><td>Capital and time</td><td>5</td><td>Under €5,000 to start, but weekends and evenings beside a full-time job and other projects.</td></tr>
+  </tbody>
+</table>
+<h3>What would raise it substantially</h3>
+<ul>
+  <li>Two paying pilot customers from the founder's network (+2).</li>
+  <li>One insurance broker or cyber insurer who recommends the report to clients (+1).</li>
+  <li>One MSP partner bringing ten sites on the Provider plan (+1).</li>
+  <li>Written employer clearance for the side business, removing the main personal risk (+1 on capital and time).</li>
+</ul>
+<p>The rule that follows: spend under €5,000 and two months to get two pilots live. If both convert to paid, build the rest. If neither does, the evidence says the market wants it but not from a part-time founder, and the loss is small.</p>
+
+<h2>Risks</h2>
+<table>
+  <thead><tr><th>Risk</th><th>Answer</th></tr></thead>
+  <tbody>
+    <tr><td>Employer rules on side businesses</td><td>Ask in writing before the first sale; structure as a company if required</td></tr>
+    <tr><td>A scan touches something unauthorised</td><td>Written scope per customer, scanning only listed addresses, logs kept; liability insurance</td></tr>
+    <tr><td>A customer suffers an attack anyway</td><td>Guardian reports and attests; contracts state it does not operate the backups or firewall</td></tr>
+    <tr><td>MSPs see Guardian as a competitor</td><td>Position as their evidence layer, white-labelled; the Provider plan makes them the seller</td></tr>
+    <tr><td>Vulnerability data quality</td><td>Use established feeds, show sources in the report, mark uncertain findings as such</td></tr>
+  </tbody>
+</table>
+
+</div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>Guardian, Switzerland</span>
+    <span><a href="index.html">Back to the product</a></span>
+  </div>
+</footer>
+</body>
+</html>
