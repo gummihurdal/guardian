@@ -68,7 +68,7 @@
   <div class="wrap">
     <div class="lead">
       <h2>How it works</h2>
-      <p>Read-only connections, no agents on your production servers, nothing changed without your say. You authorise exactly what we look at, in writing, before we look.</p>
+      <p>Read-only connections and public data only. No agents on your production servers, no penetration testing, no exploitation, nothing changed without your say. You authorise exactly what we look at, in writing, before we look. Guardian observes and proves; it never attacks.</p>
     </div>
     <div class="steps">
       <div><h3>Connect</h3><p>A read-only link to your backup system (Veeam, Proxmox Backup, Synology, Azure Backup) and a list of the public addresses and equipment you own.</p></div>
@@ -94,6 +94,10 @@
         <tr><td>Can one stolen password destroy the backups?</td><td>Credential separation, MFA on backup console</td><td>Insurers</td></tr>
         <tr><td>What of yours can be reached from the internet?</td><td>External scan of authorised addresses</td><td>NIS2 Art. 21, customers' supply-chain reviews</td></tr>
         <tr><td>Is any of it known to be vulnerable or unsupported?</td><td>Match against vulnerability databases and vendor end-of-life notices</td><td>Cyber Resilience Act context, insurers</td></tr>
+        <tr><td>Can someone send email as you?</td><td>SPF, DKIM and DMARC checked from public DNS</td><td>Insurers, customers; CEO-fraud prevention</td></tr>
+        <tr><td>Is any of your equipment out of vendor support?</td><td>Your device list matched monthly against end-of-life notices</td><td>Cyber Resilience Act context, insurers</td></tr>
+        <tr><td>Have staff logins leaked, or is someone imitating your domain?</td><td>Breach-data lookups and lookalike-domain watch (Plus)</td><td>Insurers, finance teams</td></tr>
+        <tr><td>Is your Microsoft 365 safely configured?</td><td>Read-only posture: MFA coverage, legacy auth, admin count, stale accounts (Plus)</td><td>Insurers, NIS2 Art. 21</td></tr>
         <tr><td>Are you ready for the next questionnaire?</td><td>Gap list mapped to NIS2 Art. 21 and common insurer forms</td><td>You</td></tr>
       </tbody>
     </table>
@@ -104,14 +108,14 @@
   <div class="wrap">
     <div class="lead">
       <h2>Pricing</h2>
-      <p>Monthly, cancel any time. Prices exclude VAT. Every plan includes the monthly report, same-day alerts and the quarterly attestation.</p>
+      <p>Monthly, cancel any time, prices exclude VAT. Every plan is non-intrusive: public data and read-only connections only.</p>
     </div>
     <div class="price">
-      <div class="card"><h3>Company</h3><div class="amount">€199<small> /month</small></div><small>One company, one site</small><ul><li>Backup evidence, all systems</li><li>External exposure check</li><li>Monthly report and alerts</li><li>Quarterly attestation</li></ul><a class="btn ink solid" href="#contact">Start</a></div>
-      <div class="card"><h3>Provider</h3><div class="amount">€449<small> /month</small></div><small>IT providers, up to 10 client sites</small><ul><li>Everything in Company, per client</li><li>Reports in your name</li><li>Client dashboard</li><li>Priority support</li></ul><a class="btn ink solid" href="#contact">Start</a></div>
-      <div class="card"><h3>Insurance pack</h3><div class="amount">€690<small> one-off</small></div><small>Before a renewal or audit</small><ul><li>Full backup and exposure assessment</li><li>Questionnaire answers with evidence</li><li>Fix plan, prioritised</li><li>30-day follow-up check</li></ul><a class="btn ink solid" href="#contact">Book</a></div>
+      <div class="card"><h3>Company</h3><div class="amount">€199<small> /month</small></div><small>One company, one site</small><ul><li>Backup evidence, all systems</li><li>External exposure check, non-intrusive</li><li>Email spoofing protection: SPF, DKIM, DMARC</li><li>Certificate and domain expiry alerts</li><li>Equipment end-of-life watch</li><li>Monthly report, same-day alerts, quarterly attestation</li></ul><a class="btn ink solid" href="#contact">Start</a></div>
+      <div class="card"><h3>Company Plus</h3><div class="amount">€299<small> /month</small></div><small>Everything in Company, plus</small><ul><li>Leaked staff credentials, from breach data</li><li>Lookalike-domain watch against invoice fraud</li><li>Microsoft 365 posture, read-only</li><li>Website hygiene: TLS, headers, outdated software</li></ul><a class="btn ink solid" href="#contact">Start</a></div>
+      <div class="card"><h3>Compliance</h3><div class="amount">€399<small> /month</small></div><small>Everything in Plus, plus the paperwork</small><ul><li>NIS2 Article 21 policy kit: backup, continuity, incident response, generated from your real evidence</li><li>Questionnaire answers for insurers and customers from live data</li><li>Annual evidence file for audits</li></ul><a class="btn ink solid" href="#contact">Start</a></div>
     </div>
-    <p class="note" style="margin-top:20px">Scanning covers only addresses and systems you own and authorise in writing. Guardian reports and attests; it does not replace your IT provider or your backup software.</p>
+    <p class="note" style="margin-top:20px">IT providers: the Provider plan covers up to ten client sites on any tier from €449 a month, with reports in your name. Scanning covers only addresses and systems the customer owns and authorises in writing. Guardian does not perform penetration tests. It reports and attests; it does not replace your IT provider or your backup software.</p>
   </div>
 </section>
 
