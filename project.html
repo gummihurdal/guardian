@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Guardian — Project office</title>
+<meta name="description" content="Guardian project office: roles, the task board, sprint plan and weekly cadence. Project manager: Claude. Implementation: Katherina. Owner: Gudmundur.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Serif:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="style.css">
+<style>
+.roles{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:20px 0}
+.roles div{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:18px}
+.roles strong{display:block;font-family:'IBM Plex Serif',Georgia,serif;font-size:22px;margin-bottom:4px}
+.roles span{display:block;font-size:13px;color:var(--ink2);margin-bottom:8px}
+.roles ul{padding-left:18px;margin:0;font-size:15px}
+.st{font-size:12px;padding:2px 9px;border-radius:999px;color:#fff;white-space:nowrap}
+.todo{background:#6B7280}.doing{background:var(--amber)}.done{background:var(--green)}.blocked{background:#B23A3A}
+.who{font-weight:500}
+.sprint{margin-top:36px}
+.sprint h3{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;align-items:baseline}
+.sprint h3 small{font-size:14px;color:var(--ink2);font-family:'IBM Plex Sans',sans-serif;font-weight:400}
+.rules{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.rules div{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:18px;font-size:15px}
+.rules strong{display:block;margin-bottom:6px}
+.doc table{font-size:15px}
+@media (max-width:760px){.roles,.rules{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <a class="mark" href="index.html"><i></i>Guardian</a>
+    <nav aria-label="Main">
+      <a href="#roles">Roles</a>
+      <a href="#board">Task board</a>
+      <a href="#sprints">Sprints</a>
+      <a href="#cadence">Cadence</a>
+      <a href="launch.html">Launch plan</a>
+      <a href="plan.html">Business plan</a>
+      <a href="https://gummihurdal.github.io/ideas/">All ideas</a>
+    </nav>
+  </div>
+</header>
+
+<main class="doc">
+<section class="hero">
+  <div class="wrap" style="display:block">
+    <p class="eyebrow">Project office · opened 13 October 2026 · status: Sprint 1 starts 14 October</p>
+    <h1>Who does what, by when.</h1>
+    <p>One project manager, one implementer, one owner. Two-week sprints, a task board with a definition of done for every task, a 20-minute planning call on Mondays and a 20-minute review on Fridays. Nothing starts without a task; nothing is done until the project manager has seen the proof.</p>
+  </div>
+</section>
+
+<div class="wrap">
+
+<h2 id="roles">Roles</h2>
+<div class="roles">
+  <div><strong>Claude</strong><span>Project manager</span><ul><li>Writes and prioritises every task, with a due date and a definition of done</li><li>Reviews delivered work against the definition of done</li><li>Drafts briefs for Claude Code, outreach messages and articles for Katherina to run</li><li>Keeps this board and the plan current; escalates blockers to the owner</li></ul></div>
+  <div><strong>Katherina</strong><span>Implementation</span><ul><li>Runs the tasks: research, outreach lists, content, website, Claude Code builds in the lab, testing of reports</li><li>Reports progress on the board every Friday with proof (screenshot, file, link)</li><li>Raises a blocker the day it appears, never on Friday</li><li>Never scans, connects to, or contacts a customer system without a signed scope and the owner's go</li></ul></div>
+  <div><strong>Gudmundur</strong><span>Owner and sponsor</span><ul><li>Decides and signs: employer clearance, legal, insurance, bank, customer contracts, attestations</li><li>Owns the lab, read-only credentials and every security-critical review</li><li>Runs the ten-minute sales calls once Katherina has booked them</li><li>Approves budget; the limit is €5,000 to five paying customers</li></ul></div>
+</div>
+<p class="note">Katherina works under the owner's company and supervision; she does not sign contracts or hold customer credentials. Hours: up to 15 a week, logged on the board.</p>
+
+<h2 id="board">Task board</h2>
+<p>Status: <span class="st todo">To do</span> <span class="st doing">In progress</span> <span class="st done">Done</span> <span class="st blocked">Blocked</span>. Every task has an owner, a due date and a definition of done. Update the status column on Fridays; the project manager reviews on Monday.</p>
+
+<div class="sprint">
+<h3>Sprint 1 <small>14–27 October 2026 · theme: foundations, nothing sold</small></h3>
+<table>
+  <thead><tr><th>ID</th><th>Task</th><th>Owner</th><th>Due</th><th>Definition of done</th><th>Status</th></tr></thead>
+  <tbody>
+    <tr><td>G-01</td><td>Send the employer side-business clearance request, wording from the launch plan</td><td class="who">Gudmundur</td><td>15 Oct</td><td>Email sent to HR/compliance; copy saved to the project folder</td><td><span class="st todo">To do</span></td></tr>
+    <tr><td>G-02</td><td>Set up the project folder: shared drive with /legal /build /customers /content /board</td><td class="who">Katherina</td><td>15 Oct</td><td>Folder structure exists; owner and PM have access; this page linked inside</td><td><span class="st todo">To do</span></td></tr>
+    <tr><td>G-03</td><td>Provision the Hetzner server (Ubuntu 24.04, hardened like the KAT server), Postgres installed, backups on</td><td class="who">Gudmundur</td><td>17 Oct</td><td>SSH access for owner only; Postgres reachable locally; nightly snapshot confirmed</td><td><span class="st todo">To do</span></td></tr>
+    <tr><td>G-04</td><td>Create a read-only Veeam account in the home lab and document the REST endpoints needed for job results, repositories, retention and SureBackup</td><td class="who">Gudmundur</td><td>19 Oct</td><td>Account works; a one-page endpoint list in /build</td><td><span class="st todo">To do</span></td></tr>
+    <tr><td>G-05</td><td>Run the Claude Code brief "Backup collector v1" (brief supplied by PM) on the server against the lab Veeam</td><td class="who">Katherina</td><td>24 Oct</td><td>Collector runs nightly by systemd timer and writes seven days of job data into Postgres; screenshot of the table in /build</td><td><span class="st todo">To do</span></td></tr>
+    <tr><td>G-06</td><td>Get three quotes for professional liability insurance covering IT monitoring and reporting; ask each broker to confirm "no penetration testing" wording</td><td class="who">Katherina</td><td>22 Oct</td><td>Three written quotes with the confirmation in /legal; one-line comparison table on the board</td><td><span class="st todo">To do</span></td></tr>
+    <tr><td>G-07</td><td>Brief a lawyer: terms of service plus the one-page scope-and-authorisation form (brief supplied by PM); get a fixed-price offer</td><td class="who">Katherina</td><td>22 Oct</td><td>Lawyer's offer with price and delivery date in /legal; owner chooses</td><td><span class="st todo">To do</span></td></tr>
+    <tr><td>G-08</td><td>Register the domain and set up hello@ with a signature; connect the existing site</td><td class="who">Katherina</td><td>20 Oct</td><td>Domain live, mail sends and receives, site reachable on the domain</td><td><span class="st todo">To do</span></td></tr>
+    <tr><td>G-09</td><td>Build the list of 20 IT providers (MSPs) in Zürich, Aargau, Basel and Bern: name, size, backup products they sell, contact, LinkedIn</td><td class="who">Katherina</td><td>27 Oct</td><td>Spreadsheet with 20 complete rows in /customers; PM has reviewed</td><td><span class="st todo">To do</span></td></tr>
+    <tr><td>G-10</td><td>Draft the freezer-attack article in German and English from the PM's outline</td><td class="who">Katherina</td><td>27 Oct</td><td>Two drafts, 600–800 words each, in /content; owner has read them</td><td><span class="st todo">To do</span></td></tr>
+  </tbody>
+</table>
+</div>
+
+<div class="sprint">
+<h3>Sprint 2 <small>28 October–10 November · theme: a report a stranger can read</small></h3>
+<table>
+  <thead><tr><th>ID</th><th>Task</th><th>Owner</th><th>Due</th><th>Definition of done</th><th>Status</th></tr></thead>
+  <tbody>
+    <tr><td>G-11</td><td>Run the Claude Code brief "Exposure collector v1": scan of the owner's own ranges, DNS checks (SPF, DKIM, DMARC), certificate expiry, device end-of-life matching</td><td class="who">Katherina</td><td>3 Nov</td><td>Monthly scan of own ranges completes; findings in Postgres; owner has reviewed for false alarms</td><td><span class="st todo">To do</span></td></tr>
+    <tr><td>G-12</td><td>Run the Claude Code brief "Report generator v1": seven questions, traffic lights, fix list, German and English</td><td class="who">Katherina</td><td>6 Nov</td><td>A PDF report from lab data; a non-technical reader (Alina or a friend) understands it without questions</td><td><span class="st todo">To do</span></td></tr>
+    <tr><td>G-13</td><td>Sign terms and insurance; open the business account and invoicing</td><td class="who">Gudmundur</td><td>7 Nov</td><td>Signed documents in /legal; first test invoice created</td><td><span class="st todo">To do</span></td></tr>
+    <tr><td>G-14</td><td>Prepare three pilot invitations from the owner's contact list (names from Gudmundur, message drafted by PM)</td><td class="who">Katherina</td><td>31 Oct</td><td>Three personalised messages ready for the owner to send</td><td><span class="st todo">To do</span></td></tr>
+    <tr><td>G-15</td><td>Send the three pilot invitations</td><td class="who">Gudmundur</td><td>1 Nov</td><td>Sent; replies logged on the board</td><td><span class="st todo">To do</span></td></tr>
+    <tr><td>G-16</td><td>Publish the freezer-attack article on the site and LinkedIn</td><td class="who">Katherina</td><td>10 Nov</td><td>Live in both languages; links on the board</td><td><span class="st todo">To do</span></td></tr>
+  </tbody>
+</table>
+</div>
+
+<div class="sprint">
+<h3>Sprint 3 <small>11–24 November · theme: two pilots live</small></h3>
+<table>
+  <thead><tr><th>ID</th><th>Task</th><th>Owner</th><th>Due</th><th>Definition of done</th><th>Status</th></tr></thead>
+  <tbody>
+    <tr><td>G-17</td><td>Pilot 1 onboarding: signed scope form, read-only account from the customer, device list received</td><td class="who">Gudmundur</td><td>14 Nov</td><td>Signed form in /customers; collector pulling real data</td><td><span class="st todo">To do</span></td></tr>
+    <tr><td>G-18</td><td>Pilot 2 onboarding, same as G-17</td><td class="who">Gudmundur</td><td>18 Nov</td><td>As G-17</td><td><span class="st todo">To do</span></td></tr>
+    <tr><td>G-19</td><td>Run the Claude Code brief "Alerts v1": failed job twice, new internet-facing service, device end-of-life</td><td class="who">Katherina</td><td>17 Nov</td><td>An alert email arrives within one hour of a staged event in the lab</td><td><span class="st todo">To do</span></td></tr>
+    <tr><td>G-20</td><td>Produce the first two pilot reports; owner reviews every line before sending</td><td class="who">Katherina</td><td>21 Nov</td><td>Two reports delivered; feedback notes from each pilot on the board</td><td><span class="st todo">To do</span></td></tr>
+    <tr><td>G-21</td><td>Draft the quarterly attestation template (PM outline) and send it to one insurance broker for a reaction</td><td class="who">Katherina</td><td>24 Nov</td><td>Template in /build; broker's written reaction on the board</td><td><span class="st todo">To do</span></td></tr>
+  </tbody>
+</table>
+</div>
+
+<div class="sprint">
+<h3>Sprint 4 <small>25 November–8 December · theme: convert and start selling</small></h3>
+<table>
+  <thead><tr><th>ID</th><th>Task</th><th>Owner</th><th>Due</th><th>Definition of done</th><th>Status</th></tr></thead>
+  <tbody>
+    <tr><td>G-22</td><td>Fix the report template from pilot feedback</td><td class="who">Katherina</td><td>28 Nov</td><td>Changes listed and applied; both pilots confirm</td><td><span class="st todo">To do</span></td></tr>
+    <tr><td>G-23</td><td>Prepare 30 personalised outreach messages from the owner's network (names from Gudmundur, text from PM)</td><td class="who">Katherina</td><td>1 Dec</td><td>30 messages ready in /customers, each with the person's company and backup system where known</td><td><span class="st todo">To do</span></td></tr>
+    <tr><td>G-24</td><td>Ask both pilots to convert to paid; send December reports</td><td class="who">Gudmundur</td><td>3 Dec</td><td>Two paying customers, first invoices sent</td><td><span class="st todo">To do</span></td></tr>
+    <tr><td>G-25</td><td>Send the 30 messages over five days; log replies; book calls into the owner's calendar</td><td class="who">Katherina</td><td>8 Dec</td><td>All sent; reply log on the board; calls booked</td><td><span class="st todo">To do</span></td></tr>
+    <tr><td>G-26</td><td>Contact the first five MSPs from G-09 with the Provider pitch (text from PM)</td><td class="who">Katherina</td><td>8 Dec</td><td>Five sent; replies logged</td><td><span class="st todo">To do</span></td></tr>
+  </tbody>
+</table>
+</div>
+
+<div class="sprint">
+<h3>Sprints 5–6 <small>9 December–13 January · theme: five paying customers</small></h3>
+<table>
+  <thead><tr><th>ID</th><th>Task</th><th>Owner</th><th>Due</th><th>Definition of done</th><th>Status</th></tr></thead>
+  <tbody>
+    <tr><td>G-27</td><td>Run the sales calls booked by G-25</td><td class="who">Gudmundur</td><td>19 Dec</td><td>Outcome logged per call; three paying by 21 Dec</td><td><span class="st todo">To do</span></td></tr>
+    <tr><td>G-28</td><td>Run the Claude Code brief "Plus checks v1": breach-data lookups, lookalike domains, Microsoft 365 read-only posture</td><td class="who">Katherina</td><td>4 Jan</td><td>All three checks run against the owner's own domain and tenant; findings in the report</td><td><span class="st todo">To do</span></td></tr>
+    <tr><td>G-29</td><td>Second article: "Five questions your insurer will ask about backups", German and English</td><td class="who">Katherina</td><td>22 Dec</td><td>Published; linked on the board</td><td><span class="st todo">To do</span></td></tr>
+    <tr><td>G-30</td><td>January reports to all customers; first MSP proposal sent</td><td class="who">Katherina</td><td>7 Jan</td><td>Reports out on the first working day; proposal PDF in /customers</td><td><span class="st todo">To do</span></td></tr>
+    <tr><td>G-31</td><td>Milestone review: five paying customers, €1,000 a month</td><td class="who">Claude</td><td>13 Jan</td><td>Board shows five paying; review written and the next quarter planned, or kill criteria applied</td><td><span class="st todo">To do</span></td></tr>
+  </tbody>
+</table>
+</div>
+
+<h2 id="sprints">The sprint rhythm</h2>
+<table>
+  <thead><tr><th>Sprint</th><th>Dates</th><th>Theme</th><th>Exit test</th></tr></thead>
+  <tbody>
+    <tr><td>1</td><td>14–27 Oct</td><td>Foundations, nothing sold</td><td>Clearance requested, server live, collector pulling lab data, quotes in</td></tr>
+    <tr><td>2</td><td>28 Oct–10 Nov</td><td>A report a stranger can read</td><td>Report understood by a non-technical reader; legal and insurance signed; pilots invited</td></tr>
+    <tr><td>3</td><td>11–24 Nov</td><td>Two pilots live</td><td>Two real reports delivered with feedback</td></tr>
+    <tr><td>4</td><td>25 Nov–8 Dec</td><td>Convert and start selling</td><td>Two paying; 30 messages out; calls booked</td></tr>
+    <tr><td>5–6</td><td>9 Dec–13 Jan</td><td>Five paying customers</td><td>€1,000 a month, or the kill criteria decide</td></tr>
+  </tbody>
+</table>
+
+<h2 id="cadence">Cadence and rules</h2>
+<div class="rules">
+  <div><strong>Monday, 20 minutes</strong>The PM confirms the week's tasks and due dates with Katherina; the owner joins only if a decision is needed.</div>
+  <div><strong>Friday, 20 minutes</strong>Katherina updates every status with proof; the PM accepts or sends back with one line on what is missing.</div>
+  <div><strong>Blockers</strong>Raised the day they appear, with what was tried. Waiting for the owner counts as a blocker and goes on the board.</div>
+  <div><strong>Proof</strong>Done means a screenshot, file or link in the project folder. "It works on my machine" is in progress.</div>
+  <div><strong>Claude Code briefs</strong>The PM writes each brief: scope, inputs, done-when, what not to build. Katherina runs it on the server, tests against the definition of done and reports what differed.</div>
+  <div><strong>Security line</strong>No customer system is touched without a signed scope form and the owner's written go for that site. Credentials stay with the owner.</div>
+  <div><strong>Budget</strong>Any spend over €200 needs the owner's yes on the board before it happens. Running total is kept on the board.</div>
+  <div><strong>Learning</strong>Every Claude Code brief doubles as a lesson: Katherina writes three lines on what she learned, kept in /build. By January she can write the briefs herself.</div>
+</div>
+
+<h2>Katherina's first week, in order</h2>
+<ol>
+  <li>Tuesday 14 Oct: read the product page, business plan and launch plan end to end; write five questions for Monday's call.</li>
+  <li>Wednesday 15 Oct: G-02 project folder; G-08 domain and mail started.</li>
+  <li>Thursday 16 Oct: G-06 insurance quotes requested; G-07 lawyer briefed.</li>
+  <li>Friday 17 Oct: first Friday review; G-09 MSP list started, first five rows.</li>
+  <li>Weekend: nothing. The ten-hour cap applies to both of you.</li>
+</ol>
+
+</div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>Guardian project office</span>
+    <span><a href="index.html">Product</a> · <a href="plan.html">Business plan</a> · <a href="launch.html">Launch plan</a></span>
+  </div>
+</footer>
+</body>
+</html>
