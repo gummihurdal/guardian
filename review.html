@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Guardian — Review and plan v2</title>
+<meta name="description" content="Independent review of the Guardian idea (14 October 2026): verdict, a narrower product built on restore evidence, per-site MSP pricing, a 12-week plan from 19 October, kill criteria and realistic numbers.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Serif:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="style.css">
+<style>
+.kpi{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin:20px 0 8px}
+.kpi div{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:16px}
+.kpi strong{display:block;font-family:'IBM Plex Serif',Georgia,serif;font-size:30px;color:var(--navy)}
+.kpi span{font-size:14px;color:var(--ink2)}
+.callout{background:#FFF6EA;border-left:4px solid var(--amber);padding:14px 18px;border-radius:0 6px 6px 0;margin:16px 0}
+.tablewrap{overflow-x:auto}
+.changes td:first-child{white-space:nowrap;font-weight:600}
+@media (max-width:760px){.kpi{grid-template-columns:1fr 1fr}.grid2,.grid3,.price{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <a class="mark" href="index.html"><i></i>Guardian</a>
+    <nav aria-label="Main">
+      <a href="#verdict">Verdict</a>
+      <a href="#changes">What changes</a>
+      <a href="#product">Product v2</a>
+      <a href="#plan">12 weeks</a>
+      <a href="#kill">Kill criteria</a>
+      <a href="#numbers">Numbers</a>
+      <a href="plan.html">Business plan</a>
+      <a href="launch.html">Launch plan</a>
+      <a href="project.html">Project office</a>
+      <a href="https://gummihurdal.github.io/ideas/">All ideas</a>
+    </nav>
+  </div>
+</header>
+
+<main class="doc">
+<section class="hero">
+  <div class="wrap" style="display:block">
+    <p class="eyebrow">Independent review and plan v2, 14 October 2026</p>
+    <h1>Workable. Narrow it to restore evidence and sell through IT providers.</h1>
+    <p>The demand is real and dated, the founder fits the problem, and testing it costs little. As written, the plan is too broad and leads with its weakest half. This page replaces the launch plan's product, pricing, calendar and numbers. The gate, the legal set-up and the roles stay the same.</p>
+    <div class="kpi">
+      <div><strong>1</strong><span>thing sold: proof that a restore worked</span></div>
+      <div><strong>2</strong><span>pilots with a completed restore test by 13 Dec</span></div>
+      <div><strong>€930</strong><span>MRR at month 3, base case</span></div>
+      <div><strong>&lt; €5,000</strong><span>spent before the 31 January decision</span></div>
+    </div>
+  </div>
+</section>
+
+<div class="wrap">
+
+<h2 id="verdict">Verdict</h2>
+<p><strong>Not nonsense.</strong> NIS2 Article 21(2)(c) makes backup management and disaster recovery an evidenced control. The Cyber Resilience Act's reporting duty has applied since 11 September 2026. Insurers' and large customers' questionnaires ask for recovery evidence. A founder who runs backups and servers for a living can build the collector cheaply.</p>
+<p><strong>But the external-exposure half is already free.</strong> Insurers give it away: Coalition Control is free even to non-policyholders, At-Bay includes scans with its policies, and Chubb gives policyholders BitSight and SecurityScorecard reports. A small company won't pay €199 a month for something its broker offers for nothing. Nobody cheaply checks and records that <em>a restore was tested and worked</em>, that an immutable copy exists, and that backup credentials are separate. That is the product.</p>
+<div class="callout">New pitch: "Guardian proves, every quarter, that your backups actually restore, in a report your insurer and your biggest customer accept."</div>
+
+<h2 id="changes">What changes from the 13 October plan</h2>
+<div class="tablewrap"><table class="changes">
+  <thead><tr><th>Topic</th><th>13 October plan</th><th>Plan v2, and why</th></tr></thead>
+  <tbody>
+    <tr><td>Lead offer</td><td>Backups plus external exposure, monthly</td><td>Restore evidence first. Exposure checks (DNS, certificates, device end-of-life) are included quietly and never headlined, because insurers offer them free.</td></tr>
+    <tr><td>Collection</td><td>"No agents": a remote read-only pull</td><td>A small collector with outbound HTTPS only, at the customer or the IT provider. Veeam's REST API (port 9419) sits on the backup server inside the network, so a remote pull can't reach it. It sends summaries only, never backup data or central credentials.</td></tr>
+    <tr><td>Restore tests</td><td>Read SureBackup records</td><td>A guided restore-test kit: a runbook for a file, a VM and a mailbox, plus an evidence form, hash and timestamp script, and log extracts. SureBackup needs Veeam's Universal licence, so Community and Standard users restore by hand. That gap is the business.</td></tr>
+    <tr><td>Channel</td><td>Own network first, MSPs second, brokers third</td><td>IT providers (MSPs) first. They already hold the credentials and do the restores; Guardian checks and records them under the provider's name. One partner brings 5 to 10 sites. Only about 1 in 10 Swiss SMEs has cyber insurance, so the Swiss demand comes mainly through suppliers' questionnaires and MSPs.</td></tr>
+    <tr><td>Pricing</td><td>Provider €449 for 10 sites (€45 a site) against Company €199</td><td>Priced per site, so a direct customer isn't undercut by its own IT provider (below).</td></tr>
+    <tr><td>Wording</td><td>"Attestation", restore test "within 90 days"</td><td>"Evidence report, signed by the verifier", not an audit opinion. Insurers ask for recovery tests "yearly to quarterly, depending on the insurer". The 90-day figure came from a US vendor blog. Aon Switzerland's SME questionnaire asks for at least yearly.</td></tr>
+    <tr><td>Postponed</td><td>Compliance tier, AI-written NIS2 policy kit, Plus checks, scanning customer ranges</td><td>The policy kit invites liability. Plus checks wait until three customers pay. No port scanning of customer ranges for six months.</td></tr>
+    <tr><td>The French attack</td><td>"Monday 12 October, about 180 Intermarché stores"</td><td>The night of 11–12 October 2026. Store counts vary by source: Les Mousquetaires said about 150, AFP 300 or more Intermarché and Netto stores. Quote a range. The affected Danfoss controllers were "legacy" units that no longer get updates.</td></tr>
+  </tbody>
+</table></div>
+
+<h2 id="product">Product v2</h2>
+<div class="price">
+  <div class="card"><h3>Restore Check</h3><div class="amount">€590</div><small>one-off · CHF 550 · ex VAT</small>
+    <ul><li>Guided restore test with the customer or its IT provider</li><li>Evidence record: hashes, timestamps, log extracts, screenshots</li><li>Short report for the insurer or a customer questionnaire</li><li>The entry product, and the way into a subscription</li></ul></div>
+  <div class="card"><h3>Evidence</h3><div class="amount">€179</div><small>per month · CHF 169 · ex VAT</small>
+    <ul><li>Collector on the backup server, outbound only</li><li>Monthly evidence: jobs, retention, immutability, credential separation, MFA on the console</li><li>Quarterly guided restore test, verified and recorded</li><li>Questionnaire answers from the evidence; DNS, certificate and end-of-life checks included</li></ul></div>
+  <div class="card"><h3>Partner</h3><div class="amount">€79</div><small>per site per month · CHF 75 · minimum 5 sites</small>
+    <ul><li>Reports in the IT provider's name</li><li>The provider performs the restores; Guardian verifies and records them</li><li>One Veeam Service Provider Console connection covers all its clients</li><li>Guardian never contacts the provider's clients directly</li></ul></div>
+</div>
+
+<h2 id="plan">The next 12 weeks, from Monday 19 October</h2>
+<p>G = Gudmundur, K = Katherina, C = Claude as project manager. Katherina never holds credentials, touches a customer system or signs anything.</p>
+<div class="tablewrap"><table>
+  <thead><tr><th>Week</th><th>Dates</th><th>Action</th><th>Owner</th><th>Output</th></tr></thead>
+  <tbody>
+    <tr><td>1</td><td>19–25 Oct</td><td>Employer clearance request sent: the gate. Hetzner server, lab Veeam, read-only account. Collector brief.</td><td>G, C</td><td>Request on file; collector spec</td></tr>
+    <tr><td>2</td><td>26 Oct–1 Nov</td><td>Collector v1 in the lab: a container, outbound HTTPS only, JSON summaries, no backup data. Lawyer and two brokers briefed.</td><td>K, G, C</td><td>7 days of lab data; quotes</td></tr>
+    <tr><td>3</td><td>2–8 Nov</td><td>Restore-test evidence kit v1: runbook (file, VM, mailbox), evidence form, hash and timestamp script, checklist. Dry run in the lab.</td><td>C, K, G</td><td>Kit; first lab record</td></tr>
+    <tr><td>4</td><td>9–15 Nov</td><td>Report v1 from lab data, tested on a non-technical reader. Invitations to 3 companies and 3 MSPs. Gate: no clearance, no pilots.</td><td>G, K</td><td>Draft report; replies</td></tr>
+    <tr><td>5</td><td>16–22 Nov</td><td>Terms, scope form and insurance signed. Pilot A (direct Veeam) onboarded.</td><td>G</td><td>Signed documents; real data</td></tr>
+    <tr><td>6</td><td>23–29 Nov</td><td>Pilot B (through an MSP) onboarded. Article on the 11–12 October attack, in German and English.</td><td>G, K</td><td>Both pilots live; article</td></tr>
+    <tr><td>7</td><td>30 Nov–6 Dec</td><td>Guided restore test at Pilot A; evidence verified.</td><td>G, K</td><td>First real restore record</td></tr>
+    <tr><td>8</td><td>7–13 Dec</td><td>Restore test at Pilot B. Both reports delivered by hand. A broker reads one.</td><td>G, K</td><td>Two reports; broker feedback</td></tr>
+    <tr><td>9</td><td>14–20 Dec</td><td>Fix the kit and the report. Ask both pilots to convert. 20 personal and 10 MSP messages.</td><td>G, K, C</td><td>Conversions; calls booked</td></tr>
+    <tr><td>10</td><td>21–27 Dec</td><td>Invoicing live, collector hardened, MSP pitch deck.</td><td>K, C</td><td>Tooling done</td></tr>
+    <tr><td>11</td><td>28 Dec–3 Jan</td><td>January reports prepared. Restore Check offered to 5 warm contacts.</td><td>G</td><td>Offers out</td></tr>
+    <tr><td>12</td><td>4–10 Jan 2027</td><td>Sales calls; milestone review against the kill criteria.</td><td>G, C</td><td>Decision memo</td></tr>
+  </tbody>
+</table></div>
+
+<h2 id="kill">Kill criteria and the three biggest risks</h2>
+<ul>
+  <li><strong>30 November:</strong> no written employer clearance → sell nothing; by 31 January decide whether a partner holds the company.</li>
+  <li><strong>13 December:</strong> fewer than 2 pilots with a completed restore test → stop.</li>
+  <li><strong>31 January 2027:</strong> fewer than 2 paying customers → stop.</li>
+  <li><strong>31 March 2027:</strong> under €1,000 MRR, or more than 2 hours per customer per month → stop or hand it to an MSP.</li>
+  <li><strong>Any time:</strong> a complaint about unauthorised access or data → stop at once.</li>
+</ul>
+<div class="tablewrap"><table>
+  <thead><tr><th>Risk</th><th>Answer</th></tr></thead>
+  <tbody>
+    <tr><td>Selling beside a full-time job</td><td>MSPs first: one partner is 5 to 10 sites. Gudmundur does only the 10-minute calls; Katherina books them.</td></tr>
+    <tr><td>Guardian becomes a target, or is blamed when a customer is attacked anyway</td><td>Summaries only, no central credentials; the contract says "evidence report, not an audit opinion"; professional liability insurance.</td></tr>
+    <tr><td>MSPs see a competitor</td><td>They do the restore and keep the client, and the report carries their name.</td></tr>
+  </tbody>
+</table></div>
+
+<h2 id="numbers">Realistic numbers</h2>
+<p>The 13 October money table (break-even in March 2027) is about twice this base case. Use these figures instead.</p>
+<div class="tablewrap"><table>
+  <thead><tr><th></th><th>Month 3 (Jan 2027)</th><th>Month 6 (Apr 2027)</th><th>Month 12 (Oct 2027)</th></tr></thead>
+  <tbody>
+    <tr><td>Conservative</td><td>2 direct · €360 MRR</td><td>4 direct + 1 MSP (5 sites) · €1,100</td><td>8 direct + 2 MSPs (15 sites) · €2,600</td></tr>
+    <tr><td>Base</td><td>3 direct + 1 MSP (5 sites) · €930</td><td>7 direct + 2 MSPs (15 sites) · €2,400</td><td>15 direct + 4 MSPs (40 sites) · €5,900 + about €3,000 one-off Restore Checks</td></tr>
+  </tbody>
+</table></div>
+<p><strong>Cash need:</strong> €7,500 in total (legal €2,000, insurance €1,200, server and tools €600, lab and model usage €700, contingency €3,000), of which under €5,000 is spent before the 31 January decision. Founder time excluded. Cash break-even around month 6 in the base case, month 9 in the conservative case.</p>
+<p class="note">Sources checked on 14 October 2026: BleepingComputer, Infosecurity Magazine and AFP reporting on the French attack; Coalition (free Control tier); Veeam Help Center (REST API port, recovery verification licensing); Aon Switzerland (SME questionnaire); Deloitte Switzerland cyber study 2026 (insurance uptake); CMS and McCann FitzGerald on Cyber Resilience Act dates.</p>
+
+</div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>Guardian, Switzerland</span>
+    <span><a href="index.html">Product</a> · <a href="plan.html">Business plan</a> · <a href="launch.html">Launch plan</a></span>
+  </div>
+</footer>
+</body>
+</html>
